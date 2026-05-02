@@ -1,9 +1,11 @@
-import { ReactNode } from 'react'
+import { lazy, Suspense, ReactNode } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Home from './pages/Home'
 import AppNavbar from './components/AppNavbar'
 import useAuthStore from './store/authStore'
-import type { Role } from './store/authStore'
+import type { Role } from './types/auth'
+
+const OwnerApp = lazy(() => import('ownerApp/OwnerApp'))
 
 interface AuthLayoutProps {
   children: ReactNode
@@ -48,20 +50,12 @@ export default function App() {
         </AuthLayout>
       } />
 
-      {/* Owner routes */}
-      <Route path="/owner/dashboard" element={
+      {/* Owner routes — served by owner-app remote */}
+      <Route path="/owner/*" element={
         <AuthLayout allowedRoles={['owner']}>
-          <div>Owner — Dashboard (coming soon)</div>
-        </AuthLayout>
-      } />
-      <Route path="/owner/post" element={
-        <AuthLayout allowedRoles={['owner']}>
-          <div>Owner — Post Property (coming soon)</div>
-        </AuthLayout>
-      } />
-      <Route path="/owner/listings" element={
-        <AuthLayout allowedRoles={['owner']}>
-          <div>Owner — My Listings (coming soon)</div>
+          <Suspense fallback={<div>Loading…</div>}>
+            <OwnerApp />
+          </Suspense>
         </AuthLayout>
       } />
 

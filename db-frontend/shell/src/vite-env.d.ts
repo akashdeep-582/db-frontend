@@ -7,3 +7,9 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv
 }
+
+declare module 'ownerApp/OwnerApp' {
+  import type { ComponentType } from 'react'
+  const OwnerApp: ComponentType
+  export default OwnerApp
+}

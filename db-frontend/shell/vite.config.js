@@ -8,9 +8,9 @@ export default defineConfig({
     federation({
       name: 'shell',
       remotes: {
-        // remotes wired here once tenant-app, owner-app, admin-app are built
+        ownerApp: 'http://localhost:3001/assets/remoteEntry.js',
       },
-      shared: ['react', 'react-dom', 'react-router-dom', 'zustand'],
+      shared: ['react', 'react-dom', 'react-router-dom', 'zustand', '@tanstack/react-query'],
     }),
   ],
   server: {
