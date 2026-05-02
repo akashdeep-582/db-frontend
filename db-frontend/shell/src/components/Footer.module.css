@@ -1,0 +1,41 @@
+.footer {
+  background: #fff;
+  border-top: 1px solid #e5e7eb;
+  padding: 32px 48px;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.links {
+  display: flex;
+  gap: 24px;
+}
+
+.links a {
+  font-size: 14px;
+  color: #6b7280;
+  text-decoration: none;
+}
+
+.links a:hover {
+  color: #111827;
+}
+
+.copy {
+  font-size: 13px;
+  color: #9ca3af;
+}

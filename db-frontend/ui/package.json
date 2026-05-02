@@ -1,0 +1,8 @@
+{
+  "name": "@dropbroker/ui",
+  "version": "1.0.0",
+  "main": "./src/index.ts",
+  "peerDependencies": {
+    "react": "^18.2.0"
+  }
+}

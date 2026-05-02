@@ -1,0 +1,82 @@
+.logo {
+  font-size: 18px;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #111827;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer {
+  font-size: 13px;
+  color: #6b7280;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.linkBtn {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-size: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+}
+
+.linkBtn:hover {
+  text-decoration: underline;
+}
+
+/* Role toggle — used in RegisterModal */
+.roleToggle {
+  display: flex;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.roleBtn {
+  flex: 1;
+  padding: 9px;
+  background: #fff;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  font-family: inherit;
+}
+
+.roleBtn:first-child {
+  border-right: 1px solid #d1d5db;
+}
+
+.roleBtnActive {
+  background: #2563eb;
+  color: #fff;
+}
+
+.successIcon {
+  font-size: 40px;
+  margin-bottom: 16px;
+}

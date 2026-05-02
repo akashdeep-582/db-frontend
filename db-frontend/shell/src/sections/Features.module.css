@@ -1,0 +1,35 @@
+.section {
+  background: #fff;
+  border-top: 1px solid #e5e7eb;
+  padding: 64px 48px;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  padding: 8px;
+}
+
+.icon {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.card p {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.6;
+}

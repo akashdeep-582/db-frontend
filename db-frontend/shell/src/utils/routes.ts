@@ -1,0 +1,11 @@
+import type { Role } from '../types/auth'
+
+const DEFAULT_ROUTES: Record<Role, string> = {
+  admin: '/admin/dashboard',
+  owner: '/owner/dashboard',
+  tenant: '/browse',
+}
+
+export function getDefaultRoute(role: Role): string {
+  return DEFAULT_ROUTES[role]
+}
