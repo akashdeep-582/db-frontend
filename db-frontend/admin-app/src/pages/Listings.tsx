@@ -12,8 +12,8 @@ function PropertyRow({ property, onApprove, onReject, isPending }: {
   return (
     <div className="admin-row">
       <div className="admin-row-img">
-        {property.primary_image
-          ? <img src={property.primary_image} alt={property.title} />
+        {property.primaryImage
+          ? <img src={property.primaryImage} alt={property.title} />
           : <div className="admin-row-img-placeholder">No image</div>
         }
       </div>
@@ -22,7 +22,7 @@ function PropertyRow({ property, onApprove, onReject, isPending }: {
         <div className="admin-row-meta">
           {property.city}, {property.locality} · {property.type} · ₹{property.price.toLocaleString()}/mo
         </div>
-        <div className="admin-row-meta">Owner: {property.owner_name}</div>
+        <div className="admin-row-meta">Owner: {property.ownerName}</div>
       </div>
       <div className="admin-row-status" data-status={property.status}>
         {property.status}

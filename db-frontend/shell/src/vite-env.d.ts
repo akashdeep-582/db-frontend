@@ -19,3 +19,9 @@ declare module 'adminApp/AdminApp' {
   const AdminApp: ComponentType
   export default AdminApp
 }
+
+declare module 'tenantApp/TenantApp' {
+  import type { ComponentType } from 'react'
+  const TenantApp: ComponentType
+  export default TenantApp
+}

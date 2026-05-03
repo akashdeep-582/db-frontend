@@ -10,9 +10,9 @@ interface NavItem {
 
 const NAV_LINKS: Record<Role, NavItem[]> = {
   tenant: [
-    { label: 'Browse', to: '/browse' },
-    { label: 'Wishlist', to: '/wishlist' },
-    { label: 'My Visits', to: '/visits' },
+    { label: 'Browse', to: '/tenant/browse' },
+    { label: 'Wishlist', to: '/tenant/wishlist' },
+    { label: 'My Visits', to: '/tenant/visits' },
   ],
   owner: [
     { label: 'Dashboard', to: '/owner/dashboard' },

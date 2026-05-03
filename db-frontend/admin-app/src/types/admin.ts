@@ -3,6 +3,8 @@ export type UserStatus = 'active' | 'inactive'
 
 export interface AdminProperty {
   id: string
+  ownerId: string
+  ownerName: string
   title: string
   city: string
   locality: string
@@ -11,18 +13,16 @@ export interface AdminProperty {
   type: string
   furnished: string
   status: PropertyStatus
-  owner_id: string
-  owner_name: string
-  primary_image: string | null
-  created_at: string
+  primaryImage: string | null
+  createdAt: string
 }
 
 export interface AdminUser {
   id: string
   email: string
-  full_name: string
+  fullName: string
   phone: string
   role: 'owner' | 'tenant' | 'admin'
   status: UserStatus
-  created_at: string
+  createdAt: string
 }

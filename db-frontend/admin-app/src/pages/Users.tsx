@@ -11,7 +11,7 @@ function UserRow({ user, onToggle, isPending }: {
   return (
     <div className="admin-row">
       <div className="admin-row-body">
-        <div className="admin-row-title">{user.full_name}</div>
+        <div className="admin-row-title">{user.fullName}</div>
         <div className="admin-row-meta">{user.email} · {user.phone}</div>
       </div>
       <div className="admin-row-status" data-status={user.status}>

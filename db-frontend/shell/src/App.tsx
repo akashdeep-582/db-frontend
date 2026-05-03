@@ -7,6 +7,7 @@ import type { Role } from './types/auth'
 
 const OwnerApp = lazy(() => import('ownerApp/OwnerApp'))
 const AdminApp = lazy(() => import('adminApp/AdminApp'))
+const TenantApp = lazy(() => import('tenantApp/TenantApp'))
 
 interface AuthLayoutProps {
   children: ReactNode
@@ -34,20 +35,12 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Home />} />
 
-      {/* Tenant routes */}
-      <Route path="/browse" element={
+      {/* Tenant routes — served by tenant-app remote */}
+      <Route path="/tenant/*" element={
         <AuthLayout allowedRoles={['tenant']}>
-          <div>Tenant — Browse (coming soon)</div>
-        </AuthLayout>
-      } />
-      <Route path="/wishlist" element={
-        <AuthLayout allowedRoles={['tenant']}>
-          <div>Tenant — Wishlist (coming soon)</div>
-        </AuthLayout>
-      } />
-      <Route path="/visits" element={
-        <AuthLayout allowedRoles={['tenant']}>
-          <div>Tenant — My Visits (coming soon)</div>
+          <Suspense fallback={<div>Loading…</div>}>
+            <TenantApp />
+          </Suspense>
         </AuthLayout>
       } />
 

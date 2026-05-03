@@ -18,8 +18,8 @@ function PropertyRow({ property, onDelete, isDeleting }: {
   return (
     <div className="admin-row">
       <div className="admin-row-img">
-        {property.primary_image
-          ? <img src={property.primary_image} alt={property.title} />
+        {property.primaryImage
+          ? <img src={property.primaryImage} alt={property.title} />
           : <div className="admin-row-img-placeholder">No image</div>
         }
       </div>
@@ -29,7 +29,7 @@ function PropertyRow({ property, onDelete, isDeleting }: {
           {property.city}, {property.locality} · {property.type} · ₹{property.price.toLocaleString()}/mo
         </div>
         <div className="admin-row-meta">
-          {property.furnished} · {property.area_sqft ? `${property.area_sqft} sqft` : ''}
+          {property.furnished} · {property.areaSqft ? `${property.areaSqft} sqft` : ''}
         </div>
       </div>
       <div className="admin-row-status" data-status={property.status}>

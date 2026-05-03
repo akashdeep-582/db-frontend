@@ -1,27 +1,14 @@
 export type PropertyType = '1BHK' | '2BHK' | '3BHK' | 'Studio' | 'Villa'
 export type FurnishedStatus = 'furnished' | 'semi' | 'unfurnished'
 
-// Sent to the API — stays snake_case to match backend
-export interface CreatePropertyPayload {
-  title: string
-  city: string
-  locality: string
-  address: string
-  price: number
-  type: PropertyType
-  furnished: FurnishedStatus
-  description?: string
-  area_sqft?: number
-  floor?: number
-  total_floors?: number
-  parking?: boolean
-  available_from?: string
+export interface PropertyImage {
+  id: string
+  url: string
+  isPrimary: boolean
 }
 
-// Frontend type — camelCase
 export interface Property {
   id: string
-  ownerId: string
   title: string
   city: string
   locality: string
@@ -35,7 +22,22 @@ export interface Property {
   totalFloors: number | null
   parking: boolean
   availableFrom: string | null
-  status: 'pending' | 'approved' | 'rejected'
+  status: 'approved'
+  ownerName: string
   primaryImage: string | null
   createdAt: string
+}
+
+export interface PropertyDetail extends Omit<Property, 'status'> {
+  status: 'approved'
+  ownerPhone: string
+  images: PropertyImage[]
+}
+
+export interface BrowseFilters {
+  city: string
+  type: PropertyType | ''
+  furnished: FurnishedStatus | ''
+  min_price: string
+  max_price: string
 }
