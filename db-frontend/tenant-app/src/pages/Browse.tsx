@@ -73,7 +73,7 @@ export default function Browse() {
         </div>
         <div className="browse-filter-group">
           <Button size="sm" onClick={applyFilters}>Apply</Button>
-          <Button size="sm" variant="secondary" onClick={clearFilters}>Clear</Button>
+          <Button size="sm" variant="ghost" onClick={clearFilters}>Clear</Button>
         </div>
       </div>
 
