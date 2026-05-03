@@ -6,6 +6,7 @@ import useAuthStore from './store/authStore'
 import type { Role } from './types/auth'
 
 const OwnerApp = lazy(() => import('ownerApp/OwnerApp'))
+const AdminApp = lazy(() => import('adminApp/AdminApp'))
 
 interface AuthLayoutProps {
   children: ReactNode
@@ -59,23 +60,14 @@ export default function App() {
         </AuthLayout>
       } />
 
-      {/* Admin routes */}
-      <Route path="/admin/dashboard" element={
+      {/* Admin routes — served by admin-app remote */}
+      <Route path="/admin/*" element={
         <AuthLayout allowedRoles={['admin']}>
-          <div>Admin — Dashboard (coming soon)</div>
+          <Suspense fallback={<div>Loading…</div>}>
+            <AdminApp />
+          </Suspense>
         </AuthLayout>
       } />
-      <Route path="/admin/listings" element={
-        <AuthLayout allowedRoles={['admin']}>
-          <div>Admin — Listings (coming soon)</div>
-        </AuthLayout>
-      } />
-      <Route path="/admin/users" element={
-        <AuthLayout allowedRoles={['admin']}>
-          <div>Admin — Users (coming soon)</div>
-        </AuthLayout>
-      } />
-
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )

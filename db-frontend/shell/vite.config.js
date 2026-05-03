@@ -9,6 +9,7 @@ export default defineConfig({
       name: 'shell',
       remotes: {
         ownerApp: 'http://localhost:3001/assets/remoteEntry.js',
+        adminApp: 'http://localhost:3002/assets/remoteEntry.js',
       },
       shared: ['react', 'react-dom', 'react-router-dom', 'zustand', '@tanstack/react-query'],
     }),
@@ -16,7 +17,7 @@ export default defineConfig({
   server: {
     fs: { allow: ['..'] },
     proxy: {
-      '^/(auth|properties|wishlists|visits|admin)': {
+      '^/api': {
         target: 'https://sh4jxvfw36.execute-api.ap-southeast-2.amazonaws.com',
         changeOrigin: true,
         secure: true,

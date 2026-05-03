@@ -13,3 +13,9 @@ declare module 'ownerApp/OwnerApp' {
   const OwnerApp: ComponentType
   export default OwnerApp
 }
+
+declare module 'adminApp/AdminApp' {
+  import type { ComponentType } from 'react'
+  const AdminApp: ComponentType
+  export default AdminApp
+}

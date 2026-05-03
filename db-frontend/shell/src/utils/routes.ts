@@ -1,7 +1,7 @@
 import type { Role } from '../types/auth'
 
 const DEFAULT_ROUTES: Record<Role, string> = {
-  admin: '/admin/dashboard',
+  admin: '/admin/listings',
   owner: '/owner/dashboard',
   tenant: '/browse',
 }

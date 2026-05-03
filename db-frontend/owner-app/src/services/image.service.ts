@@ -6,7 +6,7 @@ interface UploadUrlResponseDTO {
 }
 
 async function getUploadUrl(propertyId: string, file: File, isPrimary: boolean): Promise<UploadUrlResponseDTO> {
-  const { data } = await api.post<UploadUrlResponseDTO>(`/properties/${propertyId}/images`, {
+  const { data } = await api.post<UploadUrlResponseDTO>(`/api/properties/${propertyId}/images`, {
     file_name: file.name,
     content_type: file.type,
     is_primary: isPrimary,

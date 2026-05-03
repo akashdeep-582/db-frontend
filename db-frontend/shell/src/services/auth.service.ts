@@ -57,18 +57,18 @@ function mapLoginResponse(dto: LoginResponseDTO): AuthResult {
 // ── Service functions ─────────────────────────────────────────────────────────
 
 export async function login(payload: LoginPayload): Promise<AuthResult> {
-  const { data } = await api.post<LoginResponseDTO>('/auth/login', payload)
+  const { data } = await api.post<LoginResponseDTO>('/api/auth/login', payload)
   return mapLoginResponse(data)
 }
 
 export async function register(payload: RegisterPayload): Promise<void> {
-  await api.post('/auth/register', payload)
+  await api.post('/api/auth/register', payload)
 }
 
 export async function verify(payload: VerifyPayload): Promise<void> {
-  await api.post('/auth/verify', payload)
+  await api.post('/api/auth/verify', payload)
 }
 
 export async function resendCode(payload: ResendCodePayload): Promise<void> {
-  await api.post('/auth/resend-code', payload)
+  await api.post('/api/auth/resend-code', payload)
 }

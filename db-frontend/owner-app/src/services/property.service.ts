@@ -10,6 +10,6 @@ function mapCreatePropertyResponse(dto: CreatePropertyResponseDTO): Property {
 }
 
 export async function createProperty(payload: CreatePropertyPayload): Promise<Property> {
-  const { data } = await api.post<CreatePropertyResponseDTO>('/properties', payload)
+  const { data } = await api.post<CreatePropertyResponseDTO>('/api/properties', payload)
   return mapCreatePropertyResponse(data)
 }

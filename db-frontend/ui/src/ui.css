@@ -350,6 +350,104 @@
   border-radius: 4px;
 }
 
+/* ── Admin list ── */
+.admin-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.admin-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--ui-white);
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-r-lg);
+  padding: 14px 16px;
+}
+
+.admin-row-img {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  border-radius: var(--ui-r-md);
+  overflow: hidden;
+  background: var(--ui-bg);
+  border: 1px solid var(--ui-border);
+}
+
+.admin-row-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.admin-row-img-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--ui-text-muted);
+}
+
+.admin-row-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-row-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ui-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.admin-row-meta {
+  font-size: 13px;
+  color: var(--ui-text-muted);
+  margin-top: 2px;
+}
+
+.admin-row-status {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: capitalize;
+  flex-shrink: 0;
+}
+
+.admin-row-status[data-status="pending"]  { background: #fef3c7; color: #92400e; }
+.admin-row-status[data-status="approved"] { background: #d1fae5; color: #065f46; }
+.admin-row-status[data-status="rejected"] { background: #fee2e2; color: #991b1b; }
+.admin-row-status[data-status="active"]   { background: #d1fae5; color: #065f46; }
+.admin-row-status[data-status="inactive"] { background: #f3f4f6; color: #6b7280; }
+
+.admin-row-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.admin-row-badge[data-role="admin"]  { background: #ede9fe; color: #5b21b6; }
+.admin-row-badge[data-role="owner"]  { background: #dbeafe; color: #1e40af; }
+.admin-row-badge[data-role="tenant"] { background: #f0fdf4; color: #166534; }
+
+.admin-row-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
 /* ── ErrorMessage (form-level) ── */
 .ui-error-msg {
   font-size: 13px;
