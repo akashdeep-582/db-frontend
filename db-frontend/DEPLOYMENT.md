@@ -108,37 +108,21 @@ done
 
 ## Environment Files
 
-Each app has two env files:
+Only two env files exist across the whole project:
 
-| File | Used when |
-|------|-----------|
-| `.env` | `npm run dev` (local development) |
-| `.env.production` | `npm run build` (production build) |
-
-**shell `.env`**
+**`shell/.env`**
 ```
 VITE_API_URL=
-# Empty — Vite dev proxy forwards /api/* to API Gateway
+# Empty — Vite dev proxy forwards /api/* to API Gateway in dev,
+# CloudFront /api/* behavior handles it in production.
 ```
 
-**shell `.env.production`**
-```
-VITE_API_URL=
-# Empty — CloudFront /api/* behavior proxies to API Gateway
-```
-
-**owner-app `.env`**
+**`owner-app/.env`**
 ```
 VITE_GOOGLE_MAPS_API_KEY=<key>
 ```
 
-**owner-app `.env.production`**
-```
-VITE_API_URL=
-VITE_GOOGLE_MAPS_API_KEY=<key>
-```
-
-All other apps have `VITE_API_URL=` (empty) in both files. API calls are always relative (`/api/...`).
+No `.env.production` files are needed. `VITE_API_URL` is empty in both dev and production (relative calls work in both environments). Vite loads `.env` in all modes, so the Google Maps key is available in production builds automatically.
 
 ---
 
