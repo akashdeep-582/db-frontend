@@ -28,8 +28,8 @@ jobs:
           npm run build -w owner-app
           npm run build -w admin-app
           npm run build -w tenant-app
-          npm run build -w shell
-        working-directory: db-frontend
+          npx vite build --mode staging
+        working-directory: db-frontend/shell
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4

@@ -8,6 +8,11 @@ const REMOTE_URLS = {
     adminApp: 'http://localhost:3002/assets/remoteEntry.js',
     tenantApp: 'http://localhost:3003/assets/remoteEntry.js',
   },
+  staging: {
+    ownerApp: 'https://d1krxci24dtkdi.cloudfront.net/assets/remoteEntry.js',
+    adminApp: 'https://d50wk6azw371y.cloudfront.net/assets/remoteEntry.js',
+    tenantApp: 'https://d19zj8xdkk4nys.cloudfront.net/assets/remoteEntry.js',
+  },
   prod: {
     ownerApp: 'https://d1vsdiyf7s2gaw.cloudfront.net/assets/remoteEntry.js',
     adminApp: 'https://dfbytklcu0ht8.cloudfront.net/assets/remoteEntry.js',
@@ -16,8 +21,7 @@ const REMOTE_URLS = {
 }
 
 export default defineConfig(({ mode }) => {
-  const isProd = mode === 'production'
-  const remotes = isProd ? REMOTE_URLS.prod : REMOTE_URLS.dev
+  const remotes = REMOTE_URLS[mode] ?? REMOTE_URLS.prod
 
   return {
     plugins: [
