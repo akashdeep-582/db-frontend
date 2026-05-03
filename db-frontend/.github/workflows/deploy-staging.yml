@@ -1,0 +1,53 @@
+name: Deploy — Staging
+
+on:
+  push:
+    branches: [staging]
+
+jobs:
+  deploy:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    environment: staging
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: npm
+          cache-dependency-path: db-frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: db-frontend
+
+      - name: Build all apps
+        run: |
+          npm run build -w owner-app
+          npm run build -w admin-app
+          npm run build -w tenant-app
+          npm run build -w shell
+        working-directory: db-frontend
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Upload to S3
+        working-directory: db-frontend
+        run: |
+          aws s3 sync shell/dist      s3://dropbroker-shell-staging  --delete
+          aws s3 sync owner-app/dist  s3://dropbroker-owner-staging  --delete
+          aws s3 sync admin-app/dist  s3://dropbroker-admin-staging  --delete
+          aws s3 sync tenant-app/dist s3://dropbroker-tenant-staging --delete
+
+      - name: Invalidate CloudFront
+        run: |
+          for id in ${{ secrets.CF_SHELL_STAGING }} ${{ secrets.CF_OWNER_STAGING }} ${{ secrets.CF_ADMIN_STAGING }} ${{ secrets.CF_TENANT_STAGING }}; do
+            aws cloudfront create-invalidation --distribution-id $id --paths "/*"
+          done

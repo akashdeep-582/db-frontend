@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite --port 3002 --strictPort",
     "build": "vite build",
-    "preview": "vite preview --port 3002 --strictPort"
+    "preview": "vite preview --port 3002 --strictPort",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@dropbroker/ui": "*",
