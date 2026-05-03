@@ -131,3 +131,7 @@ Both `package.json` scripts use `--strictPort` so Vite will error immediately in
 
 **Page refresh returns 404**
 → Only the shell's routes are served by the dev server. Refreshing on `/owner/...` or `/admin/...` is handled by the Vite proxy bypass — make sure `shell/vite.config.js` is up to date.
+
+
+okay
+
