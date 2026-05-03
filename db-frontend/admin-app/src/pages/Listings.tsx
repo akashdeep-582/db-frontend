@@ -44,7 +44,7 @@ export default function Listings() {
   if (isLoading) return <div className="ui-page">Loading…</div>
 
   return (
-    <div className="ui-page" style={{ maxWidth: 860 }}>
+    <div className="ui-page-lg">
       <h1 className="ui-page-heading">Property Listings</h1>
       <p className="ui-page-subtitle">{properties?.length ?? 0} properties found</p>
 
@@ -63,7 +63,7 @@ export default function Listings() {
           />
         ))}
         {properties?.length === 0 && (
-          <p style={{ color: '#6b7280', textAlign: 'center', padding: 40 }}>No properties found</p>
+          <p className="ui-empty-state">No properties found</p>
         )}
       </div>
     </div>

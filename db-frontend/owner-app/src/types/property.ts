@@ -21,5 +21,6 @@ export interface Property extends CreatePropertyPayload {
   id: string
   owner_id: string
   status: 'pending' | 'approved' | 'rejected'
+  primary_image: string | null
   created_at: string
 }
